@@ -1,0 +1,52 @@
+﻿
+@model List<MvcCV.Models.Entity.TblEgitim>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Eğitim Bilgileri</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>#</th>
+                    <th>Okul</th>
+                    <th>Bölüm</th>
+                    <th>Açıklama</th>
+                    <th>GNO</th>
+                    <th>Tarih</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Baslik</td>
+                        <td>@item.AltBaslik1</td>
+                        <td>@item.AltBaslik2</td>
+                        <td>@item.GNO</td>
+                        <td>@item.Tarih</td>
+                        <td> <a href="/Egitim/EgitimSil/@item.ID/" class="btn btn-danger"><i class="fas fa-trash"></i>Sil</a> </td>
+                        <td> <a href="/Egitim/EgitimGuncelle/@item.ID/" class="btn btn-warning"><i class="fas fa-pencil-alt"></i>Güncelle</a> </td>
+                    </tr>
+                }
+
+            </table>
+
+            <a href="/Egitim/EgitimEkle/" class="btn btn-primary">Yeni Bilgi Ekle</a>
+        </div>
+    </div>
+</div>
+

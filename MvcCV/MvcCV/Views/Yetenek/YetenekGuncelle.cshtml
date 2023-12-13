@@ -1,0 +1,38 @@
+﻿
+@model MvcCV.Models.Entity.TblYetenek
+
+
+@{
+    ViewBag.Title = "YetenekGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Yetenek Güncelle</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+
+            <form method="post" action="/Yetenek/YetenekGuncelle/">
+                @Html.HiddenFor(x => x.ID)
+                <div class="form-group">
+                    <label class="col-form-label">Yetenek</label>
+                    @Html.TextBoxFor(x => x.Yetenek, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Oran</label>
+                    @Html.TextBoxFor(x => x.Oran, new { @class = "form-control" })
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
+                <a href="/Yetenek/Index/" class="btn btn-secondary mt-3 ml-3">İptal Et</a>
+
+            </form>
+
+        </div>
+    </div>
+</div>

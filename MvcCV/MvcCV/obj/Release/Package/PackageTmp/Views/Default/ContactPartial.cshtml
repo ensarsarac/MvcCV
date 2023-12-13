@@ -1,0 +1,34 @@
+﻿
+@model MvcCV.Models.Entity.TblIletisim
+
+<section class="resume-section" id="contact">
+    <div class="resume-section-content">
+        <h2 class="mb-5">İletişim</h2>
+
+        <form method="post">
+
+            <div class="form-group">
+                <label class="form-check-label">Adınız Soyadınız </label>
+                <input class="form-control" name="AdSoyad" required />
+            </div>
+
+            <div class="form-group">
+                <label class="form-check-label">Mail </label>
+                <input class="form-control" name="Mail" required />
+            </div>
+            <div class="form-group">
+                <label class="form-check-label">Konu </label>
+                <input class="form-control" name="Konu" required/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-check-label">Mesaj </label>
+                <textarea class="form-control" name="Mesaj" cols="10" rows="6" required> </textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Mesaj Gönder</button>
+
+        </form>
+
+    </div>
+</section>

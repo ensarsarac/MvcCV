@@ -1,0 +1,55 @@
+﻿
+@model List<MvcCV.Models.Entity.TblSertifika>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 class="p-3 text-primary">Sertifikalarım</h3>
+
+@foreach (var item in Model)
+{
+    <div class="tab-pane px-3" id="timeline">
+        <div class="timeline timeline-inverse">
+            <div class="time-label">
+                @{
+                    string[] cevir = item.Tarih.Split();
+                    int tarihrenk = int.Parse(cevir[1]);
+
+
+                }
+                @if (tarihrenk % 2 == 1)
+                {
+                    <span class="bg-primary">
+                        @item.Tarih
+                    </span>
+                }
+                else
+                {
+                    <span class="bg-success">
+                        @item.Tarih
+                    </span>
+                }
+
+            </div>
+            <div>
+                <i class="fas fa-info bg-primary"></i>
+                <div class="timeline-item">
+                    <div class="timeline-body">
+                        @item.Aciklama
+                    </div>
+                    <div class="timeline-footer">
+                        <a href="/Sertifika/SertifikaGuncelle/@item.ID/" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Düzenle</a>
+                        <a href="/Sertifika/SertifikaSil/@item.ID/" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Sil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<a href="/Sertifika/SertifikaEkle/" class="btn btn-primary btn-md mx-3 mb-3">Yeni Sertifika Ekle</a>
+
+

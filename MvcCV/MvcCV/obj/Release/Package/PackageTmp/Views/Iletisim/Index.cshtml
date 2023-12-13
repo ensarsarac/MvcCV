@@ -1,0 +1,40 @@
+﻿
+@model List<MvcCV.Models.Entity.TblIletisim>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h3 class="p-3 text-primary">Iletişim</h3>
+
+@foreach (var item in Model)
+{
+    <div class="tab-pane px-3" id="timeline">
+        <div class="timeline timeline-inverse">
+            <div class="time-label">              
+                    <span class="bg-success">
+                        @item.Tarih
+                    </span>              
+            </div>
+            <div>
+                <i class="fas fa-info bg-primary"></i>
+                <div class="timeline-item">
+                    <span class="time"><i class="far fa-clock"></i> @item.Mail</span>
+                    <h3 class="timeline-header"><a href="#">@item.AdSoyad</a> @item.Konu</h3>
+                    <div class="timeline-body">
+                        @item.Mesaj
+                    </div>
+                    <span class="time"><i class="far fa-clock"></i> @item.Tarih</span>
+                    <div class="timeline-footer">
+                        <a href="/Iletisim/MesajSil/@item.ID/" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Sil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

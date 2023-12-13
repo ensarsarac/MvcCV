@@ -1,0 +1,47 @@
+﻿
+@model List<MvcCV.Models.Entity.TblAdmin>
+
+
+@{
+    ViewBag.Title = "AdminIslemler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Admin Bilgileri</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>#</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Şifre</th>           
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.KullaniciAdi</td>
+                        <td>@item.Sifre</td>
+                        <td> <a href="/Admin/AdminSil/@item.ID/" class="btn btn-danger"><i class="fas fa-trash"></i> Sil</a> </td>
+                        <td> <a href="/Admin/AdminGuncelle/@item.ID/" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Güncelle</a> </td>
+                    </tr>
+                }
+
+            </table>
+
+            <a href="/Admin/AdminEkle/" class="btn btn-primary">Yeni Admin Ekle</a>
+        </div>
+    </div>
+</div>
+

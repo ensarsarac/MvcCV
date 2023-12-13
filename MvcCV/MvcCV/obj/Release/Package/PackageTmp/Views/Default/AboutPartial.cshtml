@@ -1,0 +1,18 @@
+﻿
+@model MvcCV.Models.Entity.TblHakkimda
+
+<section class="resume-section" id="about">
+    <div class="resume-section-content">
+        <h1 class="mb-0">
+            @Model.Ad
+            <span class="text-primary">@Model.Soyad</span>
+        </h1>
+        <div class="subheading mb-5">
+            @Model.Adres, @Model.Telefon
+            <a href="mailto:@Model.Mail.ToString()">@Model.Mail</a>
+        </div>
+        <p class="lead mb-5">@Model.Aciklama</p>
+        @Html.Action("SosyalMedyaPartial", "Default")
+
+    </div>
+</section>

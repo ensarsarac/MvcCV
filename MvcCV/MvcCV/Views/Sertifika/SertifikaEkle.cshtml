@@ -1,0 +1,39 @@
+﻿
+@model MvcCV.Models.Entity.TblSertifika
+
+
+@{
+    ViewBag.Title = "SertifikaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Yeni Sertifika Ekle</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+
+            <form method="post" action="/Sertifika/SertifikaEkle/">
+                @Html.HiddenFor(x => x.ID)
+                <div class="form-group">
+                    <label class="col-form-label">Açıklama</label>
+                    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Tarih</label>
+                    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Ekle</button>
+                <a href="/Sertifika/Index/" class="btn btn-secondary mt-3 ml-3">İptal Et</a>
+
+            </form>
+
+        </div>
+    </div>
+</div>

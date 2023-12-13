@@ -1,0 +1,52 @@
+﻿
+@model List<MvcCV.Models.Entity.TblDeneyim>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Deneyim Bilgileri</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>#</th>
+                    <th>Başlık</th>
+                    <th>Alt Başlık</th>
+                    <th>Açıklama</th>
+                    <th>Tarih</th>            
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Baslik</td>
+                        <td>@item.AltBaslik</td>
+                        <td>@item.Aciklama</td>
+                        <td>@item.Tarih</td>
+                        <td> <a href="/Deneyim/DeneyimSil/@item.ID/" class="btn btn-danger"><i class="fas fa-trash"></i>Sil</a> </td>
+                        <td> <a href="/Deneyim/DeneyimGuncelle/@item.ID/" class="btn btn-warning"><i class="fas fa-pencil-alt"></i>Güncelle</a> </td>
+                    </tr>
+                }
+
+            </table>
+
+            <a href="/Deneyim/DeneyimEkle/" class="btn btn-primary">Yeni Deneyim Ekle</a>
+        </div>
+    </div>
+</div>
+
+

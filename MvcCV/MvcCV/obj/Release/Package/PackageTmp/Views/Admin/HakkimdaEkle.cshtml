@@ -1,0 +1,58 @@
+﻿
+@model MvcCV.Models.Entity.TblHakkimda
+
+@{
+    ViewBag.Title = "HakkimdaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Yeni Hakkımda Bilgisi Ekle</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+
+            <form method="post" action="/Admin/HakkimdaEkle/">
+                @Html.HiddenFor(x => x.ID)
+                <div class="form-group">
+                    <label class="col-form-label">Ad</label>
+                    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Soyad</label>
+                    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Adres</label>
+                    @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Telefon</label>
+                    @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Mail</label>
+                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label">Açıklama</label>
+                    @Html.TextAreaFor(x => x.Aciklama, 10, 6, new { @class = "form-control" })
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+                <a href="/Admin/Index/" class="btn btn-secondary mt-3 ml-3">İptal Et</a>
+
+            </form>
+
+        </div>
+    </div>
+</div>

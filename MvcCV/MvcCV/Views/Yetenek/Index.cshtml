@@ -1,0 +1,71 @@
+﻿
+@model List<MvcCV.Models.Entity.TblYetenek>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{ 
+    string renk = "";
+    string renk2 = "";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Yetenek Listem</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Yetenek</th>
+                    <th>Derece</th>
+                    <th style="width: 40px">Oran</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.Oran >= 80)
+                    {
+                        renk = "progress-bar progress-bar-success";
+                        renk2 = "badge bg-primary";
+                    }
+                    if (item.Oran < 80 && item.Oran >= 60)
+                    {
+                        renk = "progress-bar bg-warning";
+                        renk2 = "badge bg-warning";
+
+                    }
+                    if (item.Oran < 60)
+                    {
+                        renk = "progress-bar bg-danger";
+                        renk2 = "badge bg-danger";
+
+                    }
+                    <tr>
+                        <td>@item.ID.</td>
+                        <td>@item.Yetenek</td>
+
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="@renk" style="width:@item.Oran%"></div>
+                            </div>
+                        </td>
+                        <td><span class="@renk2">@item.Oran%</span></td>
+                        <td> <a href="/Yetenek/YetenekSil/@item.ID/" class="btn btn-danger"><i class="fas fa-trash"></i> Sil</a> </td>
+                        <td> <a href="/Yetenek/YetenekGuncelle/@item.ID/" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Güncelle</a> </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+        <a href="/Yetenek/YetenekEkle/" class="btn btn-primary mt-4">Yeni Yetenek Ekle</a>
+    </div>
+
+</div>

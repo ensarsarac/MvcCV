@@ -1,0 +1,54 @@
+﻿
+@model List<MvcCV.Models.Entity.TblHakkimda>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Hakkımda Bilgileri</h2>
+        </div>
+        </div>
+    <hr />
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th>#</th>
+                        <th>Resim</th>
+                        <th>Ad Soyad</th>
+                        <th>Adres</th>
+                        <th>Telefon</th>
+                        <th>Mail</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                        <th>Detaylar</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td> <img src="~/Images/@item.Resim" class="img-thumbnail rounded-pill" style="width:100px;height:100px;" /> </td>
+                            <td>@item.Ad @item.Soyad</td>
+                            <td>@item.Adres</td>
+                            <td>@item.Telefon</td>
+                            <td>@item.Mail</td>
+                            <td> <a href="/Admin/HakkimdaSil/@item.ID/" class="btn btn-danger"><i class="fas fa-trash"></i> Sil</a> </td>
+                            <td> <a href="/Admin/Guncelle/@item.ID/" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Güncelle</a> </td>
+                            <td> <a href="/Admin/HakkimdaDetay/@item.ID/" class="btn btn-secondary"><i class="fas fa-info"></i> Detaylar</a> </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <a href="/Admin/HakkimdaEkle/" class="btn btn-primary">Yeni Bilgi Ekle</a>
+            </div>
+    </div>
+</div>
+

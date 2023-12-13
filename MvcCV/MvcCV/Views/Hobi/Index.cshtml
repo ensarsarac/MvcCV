@@ -1,0 +1,27 @@
+﻿
+@model List<MvcCV.Models.Entity.TblHobilerim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="p-3">Hobi Düzenleme Sayfası</h2>
+
+<div class="container-fluid p-3">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <h5>Açıklama 1</h5>
+            <textarea cols="10" rows="10" class="form-control">@item.Aciklama1</textarea>
+
+            <h5>Açıklama 2</h5>
+            <textarea cols="10" rows="10" class="form-control">@item.Aciklama2</textarea>
+        }
+
+    </div>
+
+   
+
+
+</div>

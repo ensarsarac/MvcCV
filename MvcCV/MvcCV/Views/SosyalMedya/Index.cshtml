@@ -1,0 +1,85 @@
+﻿
+@model List<MvcCV.Models.Entity.TblSosyalMedya>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Sosyal Medya Bilgileri</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12 mb-3">
+            <a href="/SosyalMedya/Ekle/" class="btn btn-primary">Yeni Sosyal Medya Hesabı Ekle</a>
+            <button class="btn btn-info ml-3" data-toggle="modal" data-target="#Modal1">Popup Üzerinden Sosyal Medya Hesabı Ekle</button>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>#</th>
+                    <th>Sosyal Medya</th>
+                    <th>Link</th>
+                    <th>İkon</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Ad</td>
+                        <td>@item.Link</td>
+                        <td>@item.Icon</td>
+                        <td> <a href="/SosyalMedya/Sil/@item.ID/" class="btn btn-danger"><i class="fas fa-trash"></i>Sil</a> </td>
+                        <td> <a href="/SosyalMedya/Guncelle/@item.ID/" class="btn btn-warning"><i class="fas fa-pencil-alt"></i>Güncelle</a> </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Sosyal Medya Hesabı Ekle
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/SosyalMedya/Ekle/">
+                    
+                    <div class="form-group">
+                        <label class="col-form-label">Sosyal Medya</label>
+                        <input class="form-control" name="Ad" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-form-label">Link</label>
+                        <input class="form-control" name="Link" />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-form-label">İkon</label>
+                        <input class="form-control" name="Icon" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+                    <a href="/SosyalMedya/Index/" class="btn btn-secondary mt-3 ml-3">İptal Et</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

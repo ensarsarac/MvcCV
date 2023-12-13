@@ -1,0 +1,49 @@
+﻿
+@model MvcCV.Models.Entity.TblHakkimda
+
+@{
+    ViewBag.Title = "HakkimdaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-primary">Detaylar</h2>
+        </div>
+
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="~/Images/@Model.Resim" style="width:400px;height:400px;" class="img-thumbnail" />
+        </div>
+        <div class="col-sm-6">
+            <div>
+                <h3>@Model.Ad @Model.Soyad</h3>
+            </div>
+            <hr />
+            <div>
+                <h6>@Model.Adres</h6>
+            </div>
+            <hr />
+            <div>
+                <h6>@Model.Telefon</h6>
+            </div>
+            <hr />
+            <div>
+                <h6>@Model.Mail</h6>
+            </div>
+            <hr />
+            <div>
+                <h6>@Model.Aciklama</h6>
+            </div>
+            <a href="/Admin/Index/" class="btn btn-outline-primary mt-3 px-5">Geri Dön</a>
+
+        </div>
+    </div>
+
+</div>
