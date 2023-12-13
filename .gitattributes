@@ -1,5 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.sol linguist-language=csharp
 *.html linguist-detectable=false
 *.cshtml linguist-detectable=false
 *.csharp linguist-detectable=true
